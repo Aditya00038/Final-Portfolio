@@ -1,10 +1,12 @@
 body {
     margin: 0;
+    padding: 0;
+    overflow-x: hidden;
     font-family: sans-serif;
     line-height: 1.6;
     color: #f4f4f4;
     background-color: #1f242d;
-    padding-top: 60px; /* Add padding to avoid overlap with fixed header */
+    padding-top: 60px;
 }
 
 .container {
@@ -17,18 +19,18 @@ header {
     background-color: #1f242d;
     color: #fff;
     padding: 1rem 0;
-    position: fixed; /* Make the header fixed */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Make the header span the entire width */
-    z-index: 100; /* Ensure it stays on top */
+    width: 100%; 
+    z-index: 100;
 }
 
 header .container {
     display: flex;
     justify-content: space-between;
     background-color: #1f242d;
-    width: 100%; /* Ensure container within header also spans full width */
+    width: 100%; 
     align-items: center;
 }
 
@@ -51,15 +53,47 @@ nav {
 
 .nav-links li {
     margin-left: 20px;
+    position: relative;
 }
 
 .nav-links li a {
     color: #fff;
     text-decoration: none;
+    padding: 8px 12px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-links li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: rgb(157, 157, 227);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+.nav-links li a:hover {
+    color: rgb(157, 157, 227);
 }
 
 .dropdown {
-    display: none; /* Initially hidden on larger screens */
+    display: none; 
     position: relative;
 }
 
@@ -87,7 +121,7 @@ nav {
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 150px; /* Adjust width as needed */
+    width: 150px; 
     border-radius: 5px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     opacity: 0;
@@ -100,7 +134,7 @@ nav {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
-    display: block; /* Ensure the content is displayed */
+    display: block; 
 }
 
 .dropdown-content li a {
@@ -114,15 +148,15 @@ nav {
     background-color: #555;
 }
 
-/* Media query for smaller screens */
 @media (max-width: 992px) {
     nav {
-        display: none; /* Hide the full navigation */
+        display: none; 
     }
 
     .dropdown {
-        display: block;
-        position: relative;
+        display: hidden;
+        position: relative; 
+        top: 1rem;    
         right: 1rem;      
         z-index: 101;     
     }
@@ -161,8 +195,8 @@ nav {
     overflow: hidden;
     white-space: nowrap;
     letter-spacing: .15em;
-    border-right: .1em solid #333; /* Add a visible cursor */
-    animation: blink-caret .75s step-end infinite; /* Keep the cursor blinking */
+    border-right: .1em solid #333;
+    animation: blink-caret .75s step-end infinite;
 }
 
 @keyframes blink-caret {
@@ -172,7 +206,7 @@ nav {
 
 .hero-img {
     flex: 1;
-    max-width: 400px; /* Adjust as needed */
+    max-width: 400px; 
 }
 
 .hero-img img {
@@ -207,16 +241,15 @@ nav {
     background-color: #555;
 }
 
-/* Responsive adjustments for hero section */
 @media screen and (max-width: 768px) {
     .hero-row {
-        flex-direction: column-reverse; /* Image on top on smaller screens */
+        flex-direction: column-reverse; 
         text-align: center;
     }
 
     .hero-content {
         padding-right: 0;
-        padding-top: 20px; /* Add spacing below the image */
+        padding-top: 20px; 
     }
 
     .hero-img {
@@ -225,7 +258,6 @@ nav {
     }
 }
 
-/* Basic section styling for demonstration */
 main section {
     padding: 50px 0;
     /* text-align: center; */
@@ -238,34 +270,33 @@ main section {
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s ease-in-out; /* Basic transition */
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out; 
 }
 
 .button:hover {
     background-color: #555;
-    transform: scale(1.05); /* Slightly scale up on hover */
+    transform: scale(1.05);
 }
 
-/* Specific styling for the Download CV button with a different hover effect */
+/* Download CV button  */
 .download-cv {
-    background-color: #5289b5; /* A more prominent color */
+    background-color: #5289b5; 
     color: whitesmoke;
     border: 2px solid #061e47;
     border-radius: 50px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* For the pseudo-element animation */
-    position: relative; /* For the pseudo-element positioning */
+    overflow: hidden; 
+    position: relative; 
 }
 
 .download-cv:hover {
-    color: #061e47; /* Text color changes on hover */
-    background-color: #d4f1f4; /* Background becomes transparent */
-    transform: translateY(-2px); /* Slight vertical lift */
+    color: #061e47; 
+    background-color: #d4f1f4; 
+    transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
     border: 2px solid #d4f1f4;
 }
 
-/* Optional: Add a subtle wave animation on hover */
 .download-cv::before {
     content: '';
     position: absolute;
@@ -299,20 +330,19 @@ main section {
     justify-content: center;
     width: 40px;
     height: 40px;
-    color: #fff; /* White initial icon color */
+    color: #fff; 
     border-radius: 50%;
     text-decoration: none;
-    font-size: 1.6rem; /* Increased font size for larger icons */
+    font-size: 1.6rem;
     transition: background-color 0.3s ease, transform 0.2s ease-in-out;
 }
 
-/* Set initial background colors */
 .social-links a[aria-label="LinkedIn"] {
-    background-color: #0077B5; /* LinkedIn blue background */
+    background-color: #0077B5;
 }
 
 .social-links a[aria-label="GitHub"] {
-    background-color: #333; /* GitHub dark gray background */
+    background-color: #333; 
 }
 
 .social-links a:hover {
@@ -320,11 +350,11 @@ main section {
 }
 
 .social-links a[aria-label="LinkedIn"]:hover {
-    background-color: #0056b3; /* Slightly darker LinkedIn blue on hover */
+    background-color: #0056b3;
 }
 
 .social-links a[aria-label="GitHub"]:hover {
-    background-color: #555; /* Slightly lighter GitHub gray on hover */
+    background-color: #555; 
 }
 
 .social-links a {
@@ -352,7 +382,7 @@ main section {
     font-size: 1.15rem;
     line-height: 1.8;
     margin-bottom: 30px;
-    text-align: center; 
+    text-align: center;
 }
 
 .advanced-about p {
@@ -380,36 +410,36 @@ main section {
 .interest {
     margin-bottom: 0;
     background-color: #fff;
-    padding: 25px; /* Slightly increased padding */
-    border-radius: 12px; /* More rounded corners */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08); /* More pronounced shadow */
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Transition shadow too */
+    padding: 25px; 
+    border-radius: 12px; 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .interest:hover {
-    transform: translateY(-8px); /* More lift on hover */
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12); /* Stronger shadow on hover */
+    transform: translateY(-8px); 
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12); 
 }
 
 .interest-label {
     display: flex;
     align-items: center;
-    margin-bottom: 15px; /* Increased margin */
+    margin-bottom: 15px;
     color: #444;
     font-weight: bold;
-    font-size: 1.15rem; /* Slightly larger label */
+    font-size: 1.15rem;
 }
 
 .interest-label i {
-    margin-right: 10px; /* Increased spacing for icon */
-    font-size: 1.3rem; /* Slightly larger icon */
-    color: #007bff; /* Accent color for icons */
+    margin-right: 10px;
+    font-size: 1.3rem; 
+    color: #007bff; 
 }
 
 .progress-bar {
     background-color: #e0e0e0;
-    height: 14px; /* Slightly taller progress bar */
-    border-radius: 7px; /* Matching rounded corners */
+    height: 14px;
+    border-radius: 7px; 
     overflow: hidden;
 }
 
@@ -418,7 +448,7 @@ main section {
     height: 100%;
     border-radius: 7px;
     width: 0%;
-    transition: width 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* More dynamic animation */
+    transition: width 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55); 
 }
 
 .advanced-about .personal-note {
@@ -429,138 +459,103 @@ main section {
     font-size: 1.1rem;
 }
 
-.education {
-    background-color: transparent;
-    padding: 80px 0;
-    color: #fff;
+.edu-container{
+	width: 100%;
+	padding: 35px 10%;
+}
+.edu-container{
+	padding-right: calc(10% - 30px);
+}
+main.row{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 20px;
+}
+.col header.title{
+	font-family: helvetica;
+	color: #007bff;
+	padding: 0px 0px 20px 30px;
+}
+.col .contents{
+	padding: 0px 30px;
+	border-left: 2px solid #bababa;
+}
+.col .contents .box{
+	position: relative;
+	padding: 20px;
+	border: 1px solid #eaeaea;
+	background-color: #ffffff;
+	cursor: pointer;
+	transition: all 0.4s;
+	margin-bottom: 20px;
+}
+.col .contents .box:hover{
+	box-shadow: 0px 3px 12px 0px #ccc;
+	border: 1px solid transparent;
+}
+.col .contents .box::before{
+	content: '';
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	right: calc(100% + 22px);
+	top: 0;
+	background-color: #007bff;
+	border: 2px solid white;
+}
+.box h4{
+	position: relative;
+	color: #007bff;
+}
+.box h3{
+	font-size: 19px;
+	padding: 10px 0px 6px;
+	font-family: helvetica;
+	color: #444;
+}
+.box p{
+	line-height: 1.2;
+	color: #666;
+	font-size: 17px;
 }
 
-.education-content {
-    max-width: 1000px; /* Adjust max-width as needed */
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.education-content h2 {
-    font-size: 2.8rem;
-    margin-bottom: 40px;
-    color: #fff;
-    text-align: center;
-}
-
-.education-row {
-    display: flex;
-    justify-content: space-around;
-    align-items: stretch; /* Maintain equal height */
-    gap: 30px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    border: 1px solid #eee;
-}
-
-.education-entry {
-    flex: 1;
-    text-align: center;
-    padding: 20px;
-    border-radius: 6px;
-    background-color: #f9f9f9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.logo-container {
-    width: 80px; /* Default logo container size */
-    height: 80px; /* Default logo container size */
-    border-radius: 20%; /* Default border-radius */
-    overflow: hidden;
-    border: 1px solid #ddd;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo-container img {
-    width: 70%;
-    height: 70%;
-    object-fit: contain;
-}
-
-/* Specific style for MITAOE logo container */
-.logo-container.mitaoe-logo {
-    width: 120px; /* Increased width for rectangle */
-    height: 60px; /* Adjusted height for rectangle */
-    border-radius: 10px; /* More rectangular border-radius */
-}
-
-.logo-container.mitaoe-logo img {
-    width: 100%; /* Make image fill the rectangular container */
-    height: 100%;
-    object-fit: contain; /* Or 'cover' depending on the logo's aspect ratio */
-}
-
-.education-entry h3 {
-    font-size: 1.6rem;
+.clg_name{
     color: #000;
-    margin-bottom: 10px;
 }
 
-.education-entry .institution {
-    font-weight: bold;
-    color: #000;
-    margin-bottom: 5px;
-    font-size: 0.95rem;
+.edu-container {
+  max-width: 1000px; 
+  margin: 0 auto; 
+  padding: 20px;
 }
 
-.education-entry .duration {
-    color: #777;
-    font-style: italic;
-    margin-bottom: 10px;
-    font-size: 0.9rem;
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.education-entry .details {
-    color: #555;
-    font-size: 0.9rem;
-    line-height: 1.5;
+.col {
+  flex: 1 1 45%; 
+  min-width: 300px; 
 }
 
-/* Responsive layout for smaller screens (stack entries) */
-@media screen and (max-width: 768px) {
-    .education-row {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 20px;
-    }
-
-    .education-entry {
-        text-align: left;
-        align-items: flex-start;
-    }
-
-    .logo-container {
-        width: 80px; /* Adjust default logo size for smaller screens */
-        height: 80px;
-        margin-left: 0;
-    }
-
-    .logo-container.mitaoe-logo { /* Adjust MITAOE logo size for smaller screens */
-        width: 100px;
-        height: 50px;
-    }
-}
-
-/* Style for the graduation entry to make it stand out */
-.education-entry.graduation h3 {
-    color: #000; /* Green for graduation */
+@media(max-width: 768px){
+	main.row{
+		grid-template-columns: 1fr;
+	}
+	.row .col:nth-child(2){
+		margin-top: 30px;
+	}
+    .col {
+    flex: 1 1 100%; 
+  }
 }
 
 .boxed-skills {
-    background-color: transparent; /* Light gray background */
+    background-color: transparent;
     padding: 80px 0;
-    /* Subtle gradient (optional) */
     /* background: linear-gradient(135deg, #f4f6f8 0%, #e8eaf6 100%); */
 }
 
@@ -573,53 +568,53 @@ main section {
 
 .boxed-skills .skills-content h2 {
     font-size: 2.8rem;
-    margin-bottom: 50px; /* Increased margin */
+    margin-bottom: 50px;
     color: #fff;
 }
 
 .skill-boxes {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider boxes */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
-    margin-top: 30px; /* Increased margin */
+    margin-top: 30px;
 }
 
 .skill-box {
     background-color: #fff;
-    padding: 30px; /* Increased padding */
-    border-radius: 12px; /* More rounded corners */
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05); /* More pronounced shadow */
+    padding: 30px;
+    border-radius: 12px; 
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
     text-align: center;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
 .skill-box:hover {
-    transform: translateY(-8px); /* More noticeable lift */
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1); /* Stronger hover shadow */
+    transform: translateY(-8px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1); 
 }
 
 .skill-box .icon-wrapper {
-    background-color: #e3f2fd; /* Light blue icon background */
+    background-color: #e3f2fd; 
     width: 70px;
     height: 70px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.2rem; /* Larger icon size */
-    margin: 0 auto 20px; /* Center and add margin */
+    font-size: 2.2rem; 
+    margin: 0 auto 20px; 
 }
 
 .skill-box h3 {
-    font-size: 1.5rem; /* Slightly larger heading */
+    font-size: 1.5rem;
     color: #333;
     margin-bottom: 12px;
 }
 
 .skill-box p {
     color: #555;
-    font-size: 1rem; /* Slightly larger paragraph */
-    line-height: 1.7; /* Improved line height */
+    font-size: 1rem; 
+    line-height: 1.7; 
 }
 
 .java_icon{
@@ -652,7 +647,7 @@ main section {
 }
 
 .enhanced-projects .projects-content {
-    max-width: 1000px; /* Adjust max-width as needed */
+    max-width: 1000px; 
     margin: 0 auto;
     padding: 0 20px;
     text-align: center;
@@ -666,10 +661,10 @@ main section {
 
 .enhanced-projects .project-list {
     display: flex;
-    flex-direction: row; /* Ensure it's a horizontal row */
-    overflow-x: auto; /* Enable horizontal scrolling if needed */
+    flex-direction: row; 
+    overflow-x: auto; 
     gap: 30px;
-    padding: 20px; /* Add some padding around the scrollable area */
+    padding: 20px;
     margin-top: 20px;
 }
 
@@ -683,8 +678,8 @@ main section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 300px; /* Set a fixed width for each card */
-    flex-shrink: 0; /* Prevent cards from shrinking */
+    width: 300px; 
+    flex-shrink: 0; 
 }
 
 .enhanced-projects .project-card:hover {
@@ -693,8 +688,8 @@ main section {
 }
 
 .enhanced-projects .project-icon {
-    background-color: #e3f2fd; /* Light blue background for icon */
-    color: #0000008b; /* Accent icon color */
+    background-color: #e3f2fd;
+    color: #0000008b; 
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -732,19 +727,18 @@ main section {
     background-color: #0056b3;
 }
 
-/* Responsive adjustments (you might need to tweak these) */
 @media screen and (max-width: 768px) {
     .enhanced-projects .project-list {
-        padding: 10px; /* Adjust padding for smaller screens */
+        padding: 10px;
     }
 
     .enhanced-projects .project-card {
-        width: 80%; /* Make cards wider on smaller screens */
-        flex-shrink: 1; /* Allow cards to shrink a bit on very small screens */
+        width: 80%; 
+        flex-shrink: 1; 
     }
 }
 
-/* Scrollable Certifications Section */
+/* Certifications Section */
 .scrollable-certifications {
     background-color: transparent;
     padding: 80px 0;
@@ -766,9 +760,9 @@ main section {
 .scrollable-certifications .certification-list {
     list-style: none;
     padding: 20px;
-    display: flex; /* Arrange list items horizontally */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    gap: 30px; /* Spacing between certification cards */
+    display: flex; 
+    overflow-x: auto; 
+    gap: 30px; 
 }
 
 .scrollable-certifications .certification-list li {
@@ -778,8 +772,8 @@ main section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     text-align: left;
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    width: 300px; /* Fixed width for each certification card */
-    flex-shrink: 0; /* Prevent cards from shrinking */
+    width: 300px; 
+    flex-shrink: 0; 
 }
 
 .scrollable-certifications .certification-list li:hover {
@@ -818,7 +812,6 @@ main section {
     text-decoration: underline;
 }
 
-/* Responsive adjustments (optional) */
 @media screen and (max-width: 600px) {
     .scrollable-certifications .certification-list {
         padding-left: 10px;
@@ -826,12 +819,13 @@ main section {
     }
 
     .scrollable-certifications .certification-list li {
-        width: 80%; /* Make cards wider on smaller screens */
+        width: 80%; 
     }
 }
 
+/* Contact Me Section */
 .contact {
-    background-color: transparent; /* Light green background */
+    background-color: transparent; 
     padding: 80px 0;
     color: #fff;
 }
@@ -850,7 +844,7 @@ main section {
     font-size: 2.8rem;
     color: #fff;
     margin-bottom: 30px;
-    grid-column: 1 / -1; /* Span across both columns */
+    grid-column: 1 / -1; 
     text-align: center;
 }
 
@@ -858,7 +852,7 @@ main section {
     color: #fff;
     margin-bottom: 30px;
     font-size: 1.1rem;
-    grid-column: 1 / -1; /* Span across both columns */
+    grid-column: 1 / -1;
     text-align: center;
 }
 
@@ -947,19 +941,14 @@ main section {
     align-items: center;
 }
 
-.contact-info ul li a:hover {
-    color: #007bff;
-}
-
 .contact-info ul li a i {
     margin-right: 10px;
     font-size: 1.5rem;
 }
 
-/* Responsive adjustments */
 @media screen and (max-width: 768px) {
     .contact-content {
-        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+        grid-template-columns: 1fr; 
     }
 
     .contact-info {
@@ -973,15 +962,16 @@ main section {
         text-align: center;
     }
 }
-/* Very Small Footer Section */
+
+/* Footer Section */
 footer {
-    background-color: #3a3a3a; /* Slightly lighter dark color */
-    color: #eee; /* Lighter text color */
-    padding: 10px 0; /* Further reduced padding */
+    background-color: #3a3a3a;
+    color: #eee;
+    padding: 10px 0; 
     text-align: center;
-    font-size: 1rem; /* Very small font size */
-    line-height: 1; /* Minimal line height */
-    border-top: 1px solid #555; /* Separator line */
+    font-size: 1rem; 
+    line-height: 1;
+    border-top: 1px solid #555; 
 }
 
 .footer-content {
@@ -994,7 +984,7 @@ footer {
 }
 
 .footer-content p {
-    margin-bottom: 2px; /* Minimal margin */
+    margin-bottom: 2px; 
 }
 
 .footer-content p:last-child {
@@ -1002,17 +992,17 @@ footer {
 }
 
 .footer-social {
-    margin-top: 8px; /* Minimal margin */
+    margin-top: 8px; 
 }
 
 .footer-social a {
     color: #eee;
-    font-size: 0.9rem; /* Slightly larger than copyright text */
-    margin: 0 6px; /* Minimal margin */
+    font-size: 0.9rem; 
+    margin: 0 6px; 
     text-decoration: none;
     transition: color 0.2s ease-in-out;
 }
 
 .footer-social a:hover {
-    color: #007bff; /* Accent color on hover */
+    color: #007bff;
 }
